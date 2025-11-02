@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Satyam Yadav | Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        :root {
+            --main: #004aad;
+            --bg: #f5f7fa;
+            --text: #222;
+            --card: #fff;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            transition: background 0.5s, color 0.5s;
+        }
+
+        /* header */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 50px;
+            z-index: 100;
+            backdrop-filter: blur(8px);
+        }
+
+        header h2 {
+            color: var(--main);
+            letter-spacing: 0.5px;
+        }
+
+        nav a {
+            margin-left: 25px;
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 500;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--main);
+        }
+
+        .theme-toggle {
+            background: none;
+            border: 1px solid var(--main);
+            border-radius: 50%;
+            width: 32px;
+            height: 32px;
+            cursor: pointer;
+            color: var(--main);
+            transition: 0.3s;
+        }
+
+        .theme-toggle:hover {
+            background: var(--main);
+            color: #fff;
+        }
+
+        section {
+            padding: 100px 10%;
+            min-height: 100vh;
+        }
+
+        /* home */
+        .home {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            background: linear-gradient(135deg, #e0e7ff, #f5f7fa);
+            border-radius: 10px;
+            margin-top: 80px;
+            padding: 60px 10%;
+        }
+
+        .intro h1 {
+            font-size: 40px;
+            color: var(--main);
+        }
+
+        .intro h3 {
+            color: #444;
+            margin: 8px 0 15px;
+        }
+
+        .intro p {
+            max-width: 480px;
+            color: #555;
+        }
+
+        .intro button {
+            background: var(--main);
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+            cursor: pointer;
+            font-weight: 500;
+            box-shadow: 0 0 10px rgba(0, 74, 173, 0.4);
+            transition: 0.3s;
+        }
+
+        .intro button:hover {
+            transform: scale(1.05);
+        }
+
+        .home img {
+            width: 260px;
+            height: 260px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 5px solid var(--main);
+            box-shadow: 0 0 15px rgba(0, 74, 173, 0.4);
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        /* about */
+        .about {
+            background: var(--card);
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            margin-top: 60px;
+            padding: 50px;
+            transition: 0.3s;
+        }
+
+        .about:hover {
+            transform: translateY(-5px);
+        }
+
+        .about h2 {
+            color: var(--main);
+            margin-bottom: 10px;
+        }
+
+        .about p {
+            color: #444;
+            font-size: 15px;
+        }
+
+        /* skills */
+        .skills h2 {
+            color: var(--main);
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .skills-box {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            justify-content: center;
+        }
+
+        .skills-box span {
+            background: #dbeafe;
+            color: #1e3a8a;
+            padding: 10px 18px;
+            border-radius: 8px;
+            font-size: 15px;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+
+        .skills-box span:hover {
+            background: var(--main);
+            color: #fff;
+            transform: scale(1.05);
+        }
+
+        /* projects */
+        .projects h2 {
+            text-align: center;
+            color: var(--main);
+            margin-bottom: 15px;
+        }
+
+        .project-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .project {
+            background: var(--card);
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            padding: 18px;
+            transition: 0.3s;
+        }
+
+        .project:hover {
+            transform: translateY(-6px);
+        }
+
+        .project h4 {
+            color: var(--main);
+        }
+
+        .project p {
+            font-size: 14px;
+            color: #555;
+            margin: 6px 0;
+        }
+
+        .project a {
+            color: var(--main);
+            text-decoration: none;
+        }
+
+        /* contact */
+        .contact {
+            text-align: center;
+        }
+
+        .contact h2 {
+            color: var(--main);
+            margin-bottom: 10px;
+        }
+
+        form {
+            max-width: 400px;
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        form input,
+        textarea {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-family: inherit;
+        }
+
+        form button {
+            background: var(--main);
+            color: #fff;
+            border: none;
+            padding: 10px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        form button:hover {
+            background: #00368f;
+        }
+
+        footer {
+            text-align: center;
+            background: var(--main);
+            color: #fff;
+            padding: 18px;
+            margin-top: 40px;
+            font-size: 14px;
+        }
+
+        /* dark mode */
+        .dark {
+            --bg: #0f172a;
+            --text: #e2e8f0;
+            --card: #1e293b;
+            --main: #38bdf8;
+        }
+
+        .dark .intro button {
+            box-shadow: 0 0 12px rgba(56, 189, 248, 0.5);
+        }
+
+        .home img {
+            width: 400px;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 6px solid var(--main);
+            box-shadow: 0 0 25px rgba(0, 74, 173, 0.5);
+            animation: float 3s ease-in-out infinite;
+            transition: transform 0.2s ease;
+        }
+
+        .home img:hover {
+            transform: scale(3.05);
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h2>Satyam Yadav</h2>
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#skills">Skills</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact">Contact</a>
+        </nav>
+        <button class="theme-toggle" id="toggleBtn">🌙</button>
+    </header>
+
+    <!-- home -->
+    <section id="home" class="home">
+        <div class="intro">
+            <h1>Hi, I'm Satyam 👋</h1>
+            <h3>B.Tech CSE Student | Web Developer (in progress 😅)</h3>
+            <p>
+                Currently in my 1st semester at PW IOI.
+                Learning HTML, CSS, C, and C++ — and making small projects to test my skills.
+                I love turning code into creative designs.
+            </p>
+            <button onclick="window.location='#contact'">Contact Me</button>
+        </div>
+        <img src="satyam.png" width:200px; alt="My photo ">
+    </section>
+
+    <!-- about -->
+    <section id="about" class="about">
+        <h2>About Me</h2>
+        <p>
+            I started coding this year(2025 on september) and quickly got addicted to creating things for the web.
+            Every new tag or property feels like a small power-up 😄.
+            I’ve made a few web layouts, login pages, and now this portfolio.
+            My dream is to become a full-stack developer who can build and design professional-level projects.
+        </p>
+    </section>
+
+    <!-- skills -->
+    <section id="skills" class="skills">
+        <h2>Skills & Tools</h2>
+        <div class="skills-box">
+            <span>HTML</span>
+            <span>CSS</span>
+            <span>C</span>
+            <span>C++</span>
+            <span>GitHub</span>
+            <span>VS Code</span>
+            <span>Digital Electronics</span>
+        </div>
+    </section>
+
+    <!-- projects -->
+    <section id="projects" class="projects">
+        <h2>My Projects</h2>
+        <div class="project-list">
+            <div class="project">
+                <h4>Portfolio Website</h4>
+                <p>This site itself — made using pure HTML & CSS (and a bit of trial & error).</p>
+                <a href="#">🔗 View</a>
+            </div>
+            <div class="project">
+                <h4>Amazon Clone</h4>
+                <p>Basic Amazon-like layout with a header, search bar, and product grid.</p>
+                <a href="#">🔗 View</a>
+            </div>
+            <div class="project">
+                <h4>Calculator</h4>
+                <p>Basic calculator using HTML, CSS, and JS (just started learning).</p>
+                <a href="#">🔗 View</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- contact -->
+    <section id="contact" class="contact">
+        <h2>Contact Me</h2>
+        <p>If you’d like to connect, send me a quick message 👇</p>
+        <form onsubmit="sendMail(event)">
+            <input type="text" id="name" placeholder="Your Name" required>
+            <input type="email" id="email" placeholder="Your Email" required>
+            <textarea id="msg" placeholder="Message..." rows="5" required></textarea>
+            <button type="submit">Send</button>
+        </form>
+    </section>
+
+    <footer>Made with ❤️ by Satyam Yadav | 2025</footer>
+
+    <script>
+        // theme toggle
+        const btn = document.getElementById('toggleBtn');
+        btn.addEventListener('click', () => {
+            document.body.classList.toggle('dark');
+            btn.textContent = document.body.classList.contains('dark') ? '☀️' : '🌙';
+        });
+
+        // email redirect (tiny mistake: missing ; intentionally 😅)
+        function sendMail(e) {
+            e.preventDefault()
+            let name = document.getElementById('name').value
+            let mail = document.getElementById('email').value
+            let msg = document.getElementById('msg').value
+            window.location.href = `mailto:satyam@example.com?subject=Portfolio Message from ${name}&body=${msg}%0A(${mail})`
+        }
+    </script>
+
+</body>
+
+</html>
